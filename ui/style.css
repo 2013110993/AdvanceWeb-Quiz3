@@ -61,20 +61,20 @@ table {
 .wrapper{
     margin: 0 auto;
     width: 1024px;
-    padding: 5px;
 }
 
 /* Header */
 
 .header{
     background-color: #357ea7;
-    height: 50px;
-    padding: 10px;
+    height: 66px;
     border-radius: 5px;
 }
 .header h1{
     position: relative;
     float: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
     width: 200px;
     margin-left: 10px;
     margin-right: 5px;
@@ -98,12 +98,63 @@ table {
 .material-symbols-outlined {
     position: relative;
     float: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
     font-size: 35px !important;
     line-height: 50px !important;
     color: #ffffff !important
 }
+.addList{
+    position: relative;
+    float: right;
+    width: 100px;
+    line-height: 24px;
+    padding: 5px 10px;
+    font-size: 14px;
+    height: 66px;
+    cursor: pointer;
+   color: #fff;
+   background-color: #2b6789;
+   border: 0  !important;
+}
+.addListfocus input:focus{
+    outline: none;
+}
+*:focus {
+    outline: none;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #2b6789;
+    font-style: italic;
+    font-weight: 700;
+  }
+
+.listTitle{
+    position: relative;
+    float: right;
+    margin-top: 11px;
+    margin-right: 10px;
+    width: 200px;
+    padding: 5px;
+    line-height: 28px;
+    font-size: 16px;
+    color: #232f34;
+    font-weight: 700;
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #2b6789;
+}
 /* Sidebar */
 
 /* Content */
+.show{
+    display: block !important;
+}
+.hide{
+    display: none;
+}
 
 /* Footer */
