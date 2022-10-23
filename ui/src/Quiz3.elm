@@ -1,85 +1,83 @@
 module Quiz3 exposing (main)
 
-import Html exposing (..)
-import Html.Attributes exposing(..)
-import Html.Events exposing (..)
 import Browser
-
-
-
-
-
+import Html exposing (..)
+import Html.Attributes exposing (..)
+import Html.Events exposing (..)
 
 -----------------------
 -- MODEL
 -----------------------
-
--- viewForm  : {  visible : Bool} -> Html Msg
--- viewForm model = 
---         let
---             buttonType = 
---                 if model.visible then "show" else "hide"
---         in
---             span [class "material-icons" ]
---             [ text buttonType ]    
 type alias Model =
-  { content : String
-  }
+    { field : String
+    , id : Int
+    , todo : List Todos
+    }
 
-init : Model
-init =
-  { content = "" }
+type alias Todos =
+    { id : Int
+    , name : String
+    , isDone: Bool
+    }
 
------------------------
--- Update
------------------------
--- update : Msg -> {  visible : Bool} -> {  visible : Bool} 
--- update msg model =
---     case msg of
---         Visible ->
---            {model | visible = True}
---         Unvisible ->
---            { model | visible = False} 
 
 type Msg
-  = Change String
-
-update : Msg -> Model -> Model
-update msg model =
-  case msg of
-    Change newContent ->
-      { model | content = newContent }
+    = CreateTodo
 
 
+initModel : Model
+initModel =
+    { field = ""
+    , id = 0
+    , todo = []
+    }
 
 
 -----------------------
 -- View
 -----------------------
-view : Model  -> Html Msg 
+view : Model -> Html Msg
 view model =
-     section [][
-         -- Header
-            div [ class "container" ]
-                [ div [ class "wrapper header"] 
-                    [
-                        span [ class "material-symbols-outlined"][ text "download_done"]
-                        , h1 [] 
-                            [
-                                text "ToDo"
-                                , span [][ text "list"]
-                            ]
-                           
-                            
-                    ]
-                ]
-                   -- / Header
-        ]
-      
+    section [ ] [ 
+     
+        div [ class "container" ]
+            [ div [ class "wrapper header"] 
+                [
+                    span [ class "material-symbols-outlined"][ text "download_done"]
+                    , h1 [] 
+                        [
+                            text "ToDo"
+                            , span [][ text "list"]
+                        ]
+                        
+                ]-- / Header
 
+                ,div[class "wrapper formBlock"]
+                [
+
+                ]-- /Form Block
+            ]--/Container
         
+
+       
+    ]
+
+-----------------------
+-- Update
+-----------------------
+update : Msg -> Model -> Model
+update msg model =
+    case msg of
+        CreateTodo ->
+            { model | todo = { id = model.id, name = model.field, isDone = False } :: model.todo, field = "", id = model.id + 1 }
+
 
 
 -- MAIN
+main : Program () Model Msg
 main =
-  Browser.sandbox { init = init, update = update, view = view }
+    Browser.sandbox
+        { view = view
+         , update = update
+        , init = initModel
+        }

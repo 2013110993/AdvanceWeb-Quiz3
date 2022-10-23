@@ -27,6 +27,7 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+    background-color: #f1f1f1;
 	line-height: 1;
 }
 ol, ul {
@@ -52,15 +53,17 @@ table {
     width: 100%;
     height: auto;
 }
+section{
+    margin: 100px;
+}
 .container{
     position: relative;
     float: left;
     width: 100%;
-    padding: 10px;
 }
 .wrapper{
     margin: 0 auto;
-    width: 1024px;
+    width: 500px;
 }
 
 /* Header */
@@ -68,7 +71,8 @@ table {
 .header{
     background-color: #357ea7;
     height: 66px;
-    border-radius: 5px;
+    border-radius: 8px 8px 0px 0px;
+    margin-bottom: 25px;
 }
 .header h1{
     position: relative;
@@ -105,22 +109,7 @@ table {
     line-height: 50px !important;
     color: #ffffff !important
 }
-.addList{
-    position: relative;
-    float: right;
-    width: 100px;
-    line-height: 24px;
-    padding: 5px 10px;
-    font-size: 14;
-    height: 66px;
-    cursor: pointer;
-   color: #fff;
-   background-color: #2b6789;
-   border: 0  !important;
-}
-.addListfocus input:focus{
-    outline: none;
-}
+
 *:focus {
     outline: none;
 }
@@ -130,31 +119,14 @@ table {
     font-weight: 700;
   }
 
-.listTitle{
-    position: relative;
-    float: right;
-    margin-top: 11px;
-    margin-right: 10px;
-    width: 200px;
-    padding: 5px;
-    line-height: 28px;
-    font-size: 16px;
-    color: #232f34;
-    font-weight: 700;
-    background-color: transparent;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid #2b6789;
-}
+
 /* Sidebar */
 
 /* Content */
-.show{
-    display: block !important;
-}
-.hide{
-    display: none;
+.formBlock{
+    min-height: 300px;
+    border-radius: 0px 0px 8px 8px;
+    background-color: #ffffff; 
 }
 
 /* Footer */
