@@ -54,8 +54,19 @@ view model =
 
                 ,div[class "wrapper formBlock"]
                 [
+                    -- List of Items
 
                 ]-- /Form Block
+                ,div[ class "newItem "]
+                [
+                    span[ class "material-symbols-outlined" ]
+                    [
+                       text "add"
+                    ]
+                    ,text "New Item"
+                       
+                ]--/New Item Button
+                
             ]--/Container
         
 

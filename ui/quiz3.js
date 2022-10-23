@@ -5256,7 +5256,27 @@ var $author$project$Quiz3$view = function (model) {
 							[
 								$elm$html$Html$Attributes$class('wrapper formBlock')
 							]),
-						_List_Nil)
+						_List_Nil),
+						A2(
+						$elm$html$Html$div,
+						_List_fromArray(
+							[
+								$elm$html$Html$Attributes$class('newItem ')
+							]),
+						_List_fromArray(
+							[
+								A2(
+								$elm$html$Html$span,
+								_List_fromArray(
+									[
+										$elm$html$Html$Attributes$class('material-symbols-outlined')
+									]),
+								_List_fromArray(
+									[
+										$elm$html$Html$text('add')
+									])),
+								$elm$html$Html$text('New Item')
+							]))
 					]))
 			]));
 };

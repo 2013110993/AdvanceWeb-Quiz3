@@ -55,6 +55,7 @@ table {
 }
 section{
     margin: 100px;
+    width: 500px;
 }
 .container{
     position: relative;
@@ -62,8 +63,7 @@ section{
     width: 100%;
 }
 .wrapper{
-    margin: 0 auto;
-    width: 500px;
+    margin: 0 auto; 
 }
 
 /* Header */
@@ -129,4 +129,24 @@ section{
     background-color: #ffffff; 
 }
 
-/* Footer */
+.newItem{
+    margin: 0 auto;
+    margin-top: -20px;
+    width: 100px;
+    line-height: 24px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: italic;
+    text-transform: capitalize;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #2b6789;
+}
+.newItem .material-symbols-outlined{
+    line-height: 24px !important;
+    font-size: 20px !important;
+    padding: 0 !important;
+}
