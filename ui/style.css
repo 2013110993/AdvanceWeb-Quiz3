@@ -111,7 +111,7 @@ table {
     width: 100px;
     line-height: 24px;
     padding: 5px 10px;
-    font-size: 14px;
+    font-size: 14;
     height: 66px;
     cursor: pointer;
    color: #fff;

@@ -69,12 +69,7 @@ view model =
                                 text "ToDo"
                                 , span [][ text "list"]
                             ]
-                            ,button [class "addList",type_ "submit" ][ text "Add List"]
-                             -- Input List Title
-                            ,div [ class "wrapper" ]
-                            [ input [class "listTitle", placeholder "Enter Title Here...", value model.content, onInput Change ] []
-                            
-                            ]
+                           
                             
                     ]
                 ]
