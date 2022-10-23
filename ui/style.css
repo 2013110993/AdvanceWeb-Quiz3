@@ -124,15 +124,23 @@ section{
 
 /* Content */
 .formBlock{
+    position: relative;
+    float: left;
+    padding: 15px;
+    width: 470px;
+    height: auto;
     min-height: 300px;
     border-radius: 0px 0px 8px 8px;
     background-color: #ffffff; 
+    
 }
 
 .newItem{
-    margin: 0 auto;
-    margin-top: -20px;
-    width: 100px;
+    position: relative;
+    float: left;
+    margin-left: 70px;
+    margin-top: -30px;
+    width: 350px;
     line-height: 24px;
     text-align: center;
     color: #ffffff;
@@ -140,13 +148,79 @@ section{
     font-weight: 500;
     font-style: italic;
     text-transform: capitalize;
-    cursor: pointer;
     padding: 10px;
-    border-radius: 10px;
-    background-color: #2b6789;
+    border-radius: 8px;
+    background-color: #357ea7;
+    
 }
 .newItem .material-symbols-outlined{
     line-height: 24px !important;
     font-size: 20px !important;
     padding: 0 !important;
+}
+
+.inputTitle{
+    color: #232f34;
+    border: 0px;
+    text-align: center;
+     line-height: 34px;
+    background-color: #f1f1f1;
+}
+
+.btn{
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    width: 80px;
+    line-height: 34px;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 700;
+    border: none;
+    background-color: #2b6789;
+}
+.completed {
+
+    text-decoration: line-through;
+    font-style: italic;
+}
+.done{
+    position: relative;
+    float: left;
+    color:#01cc90 !important;
+    padding: 5px;
+    margin-left: 4px;
+    margin-right: 4px;
+    line-height: 20px !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    border: none;
+    background-color: transparent;
+}
+.delete{
+    position: relative;
+    float: left;
+    color: #e34434 !important;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding: 5px;
+    line-height: 20px !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    border: none;
+    background-color: transparent;
+}
+.item{
+    position: relative;
+    float: left;
+    width: 390px;
+}
+.itemList{
+    position: relative;
+    float: left;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    width: 466px !important;
+    border-bottom: 1px dotted #eeeeee;
 }

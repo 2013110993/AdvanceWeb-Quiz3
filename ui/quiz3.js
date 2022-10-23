@@ -519,11 +519,11 @@ function _Debug_crash_UNUSED(identifier, fact1, fact2, fact3, fact4)
 
 function _Debug_regionToString(region)
 {
-	if (region.L.A === region.Q.A)
+	if (region.N.D === region.S.D)
 	{
-		return 'on line ' + region.L.A;
+		return 'on line ' + region.N.D;
 	}
-	return 'on lines ' + region.L.A + ' through ' + region.Q.A;
+	return 'on lines ' + region.N.D + ' through ' + region.S.D;
 }
 
 
@@ -2719,9 +2719,9 @@ var _VirtualDom_mapEventTuple = F2(function(func, tuple)
 var _VirtualDom_mapEventRecord = F2(function(func, record)
 {
 	return {
-		o: func(record.o),
-		M: record.M,
-		J: record.J
+		q: func(record.q),
+		O: record.O,
+		L: record.L
 	}
 });
 
@@ -2989,11 +2989,11 @@ function _VirtualDom_makeCallback(eventNode, initialHandler)
 		// 3 = Custom
 
 		var value = result.a;
-		var message = !tag ? value : tag < 3 ? value.a : value.o;
-		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.M;
+		var message = !tag ? value : tag < 3 ? value.a : value.q;
+		var stopPropagation = tag == 1 ? value.b : tag == 3 && value.O;
 		var currentEventNode = (
 			stopPropagation && event.stopPropagation(),
-			(tag == 2 ? value.b : tag == 3 && value.J) && event.preventDefault(),
+			(tag == 2 ? value.b : tag == 3 && value.L) && event.preventDefault(),
 			eventNode
 		);
 		var tagger;
@@ -3983,7 +3983,7 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 		impl.aF,
 		impl.aD,
 		function(sendToApp, initialModel) {
-			var divertHrefToApp = impl.K && impl.K(sendToApp)
+			var divertHrefToApp = impl.M && impl.M(sendToApp)
 			var view = impl.aG;
 			var title = _VirtualDom_doc.title;
 			var bodyNode = _VirtualDom_doc.body;
@@ -4058,7 +4058,7 @@ function _Browser_application(impl)
 	var key = function() { key.a(onUrlChange(_Browser_getUrl())); };
 
 	return _Browser_document({
-		K: function(sendToApp)
+		M: function(sendToApp)
 		{
 			key.a = sendToApp;
 			_Browser_window.addEventListener('popstate', key);
@@ -4075,7 +4075,7 @@ function _Browser_application(impl)
 					sendToApp(onUrlRequest(
 						(next
 							&& curr.ae === next.ae
-							&& curr.U === next.U
+							&& curr.W === next.W
 							&& curr.ab.a === next.ab.a
 						)
 							? $elm$browser$Browser$Internal(next)
@@ -4252,7 +4252,7 @@ function _Browser_getViewport()
 			an: _Browser_window.pageXOffset,
 			ao: _Browser_window.pageYOffset,
 			am: _Browser_doc.documentElement.clientWidth,
-			T: _Browser_doc.documentElement.clientHeight
+			V: _Browser_doc.documentElement.clientHeight
 		}
 	};
 }
@@ -4263,7 +4263,7 @@ function _Browser_getScene()
 	var elem = _Browser_doc.documentElement;
 	return {
 		am: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
-		T: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
+		V: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
 	};
 }
 
@@ -4288,13 +4288,13 @@ function _Browser_getViewportOf(id)
 		return {
 			ai: {
 				am: node.scrollWidth,
-				T: node.scrollHeight
+				V: node.scrollHeight
 			},
 			al: {
 				an: node.scrollLeft,
 				ao: node.scrollTop,
 				am: node.clientWidth,
-				T: node.clientHeight
+				V: node.clientHeight
 			}
 		};
 	});
@@ -4329,13 +4329,13 @@ function _Browser_getElement(id)
 				an: x,
 				ao: y,
 				am: _Browser_doc.documentElement.clientWidth,
-				T: _Browser_doc.documentElement.clientHeight
+				V: _Browser_doc.documentElement.clientHeight
 			},
 			au: {
 				an: x + rect.left,
 				ao: y + rect.top,
 				am: rect.width,
-				T: rect.height
+				V: rect.height
 			}
 		};
 	});
@@ -4450,7 +4450,7 @@ var $elm$core$Set$toList = function (_v0) {
 var $elm$core$Basics$EQ = 1;
 var $elm$core$Basics$GT = 2;
 var $elm$core$Basics$LT = 0;
-var $author$project$Quiz3$initModel = {F: '', s: 0, G: _List_Nil};
+var $author$project$Quiz3$initModel = {t: '', i: 0, n: _List_Nil};
 var $elm$core$Result$Err = function (a) {
 	return {$: 1, a: a};
 };
@@ -4875,7 +4875,7 @@ var $elm$url$Url$Http = 0;
 var $elm$url$Url$Https = 1;
 var $elm$url$Url$Url = F6(
 	function (protocol, host, port_, path, query, fragment) {
-		return {S: fragment, U: host, _: path, ab: port_, ae: protocol, af: query};
+		return {U: fragment, W: host, _: path, ab: port_, ae: protocol, af: query};
 	});
 var $elm$core$String$contains = _String_contains;
 var $elm$core$String$length = _String_length;
@@ -5175,19 +5175,70 @@ var $elm$browser$Browser$sandbox = function (impl) {
 			aG: impl.aG
 		});
 };
+var $elm$core$List$filter = F2(
+	function (isGood, list) {
+		return A3(
+			$elm$core$List$foldr,
+			F2(
+				function (x, xs) {
+					return isGood(x) ? A2($elm$core$List$cons, x, xs) : xs;
+				}),
+			_List_Nil,
+			list);
+	});
+var $elm$core$Basics$neq = _Utils_notEqual;
+var $elm$core$Basics$not = _Basics_not;
 var $author$project$Quiz3$update = F2(
 	function (msg, model) {
-		return _Utils_update(
-			model,
-			{
-				F: '',
-				s: model.s + 1,
-				G: A2(
-					$elm$core$List$cons,
-					{s: model.s, V: false, Y: model.F},
-					model.G)
-			});
+		switch (msg.$) {
+			case 0:
+				return _Utils_update(
+					model,
+					{
+						t: '',
+						i: model.i + 1,
+						n: A2(
+							$elm$core$List$cons,
+							{i: model.i, z: false, J: model.t},
+							model.n)
+					});
+			case 3:
+				var str = msg.a;
+				return _Utils_update(
+					model,
+					{t: str});
+			case 2:
+				var id = msg.a;
+				return _Utils_update(
+					model,
+					{
+						n: A2(
+							$elm$core$List$filter,
+							function (todo) {
+								return !_Utils_eq(todo.i, id);
+							},
+							model.n)
+					});
+			default:
+				var id = msg.a;
+				var done = msg.b;
+				var updateTodo = function (todo) {
+					return _Utils_eq(todo.i, id) ? _Utils_update(
+						todo,
+						{z: !done}) : todo;
+				};
+				return _Utils_update(
+					model,
+					{
+						n: A2($elm$core$List$map, updateTodo, model.n)
+					});
+		}
 	});
+var $author$project$Quiz3$CreateTodo = {$: 0};
+var $author$project$Quiz3$SetField = function (a) {
+	return {$: 3, a: a};
+};
+var $elm$html$Html$button = _VirtualDom_node('button');
 var $elm$json$Json$Encode$string = _Json_wrap;
 var $elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
@@ -5197,12 +5248,173 @@ var $elm$html$Html$Attributes$stringProperty = F2(
 			$elm$json$Json$Encode$string(string));
 	});
 var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
+var $elm$json$Json$Encode$bool = _Json_wrap;
+var $elm$html$Html$Attributes$boolProperty = F2(
+	function (key, bool) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			$elm$json$Json$Encode$bool(bool));
+	});
+var $elm$html$Html$Attributes$disabled = $elm$html$Html$Attributes$boolProperty('disabled');
 var $elm$html$Html$div = _VirtualDom_node('div');
+var $elm$html$Html$form = _VirtualDom_node('form');
 var $elm$html$Html$h1 = _VirtualDom_node('h1');
+var $elm$html$Html$input = _VirtualDom_node('input');
+var $elm$html$Html$Events$alwaysStop = function (x) {
+	return _Utils_Tuple2(x, true);
+};
+var $elm$virtual_dom$VirtualDom$MayStopPropagation = function (a) {
+	return {$: 1, a: a};
+};
+var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+var $elm$html$Html$Events$stopPropagationOn = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$MayStopPropagation(decoder));
+	});
+var $elm$json$Json$Decode$field = _Json_decodeField;
+var $elm$json$Json$Decode$at = F2(
+	function (fields, decoder) {
+		return A3($elm$core$List$foldr, $elm$json$Json$Decode$field, decoder, fields);
+	});
+var $elm$json$Json$Decode$string = _Json_decodeString;
+var $elm$html$Html$Events$targetValue = A2(
+	$elm$json$Json$Decode$at,
+	_List_fromArray(
+		['target', 'value']),
+	$elm$json$Json$Decode$string);
+var $elm$html$Html$Events$onInput = function (tagger) {
+	return A2(
+		$elm$html$Html$Events$stopPropagationOn,
+		'input',
+		A2(
+			$elm$json$Json$Decode$map,
+			$elm$html$Html$Events$alwaysStop,
+			A2($elm$json$Json$Decode$map, tagger, $elm$html$Html$Events$targetValue)));
+};
+var $elm$html$Html$Events$alwaysPreventDefault = function (msg) {
+	return _Utils_Tuple2(msg, true);
+};
+var $elm$virtual_dom$VirtualDom$MayPreventDefault = function (a) {
+	return {$: 2, a: a};
+};
+var $elm$html$Html$Events$preventDefaultOn = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$MayPreventDefault(decoder));
+	});
+var $elm$html$Html$Events$onSubmit = function (msg) {
+	return A2(
+		$elm$html$Html$Events$preventDefaultOn,
+		'submit',
+		A2(
+			$elm$json$Json$Decode$map,
+			$elm$html$Html$Events$alwaysPreventDefault,
+			$elm$json$Json$Decode$succeed(msg)));
+};
+var $elm$html$Html$Attributes$placeholder = $elm$html$Html$Attributes$stringProperty('placeholder');
 var $elm$html$Html$section = _VirtualDom_node('section');
 var $elm$html$Html$span = _VirtualDom_node('span');
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
+var $elm$html$Html$ul = _VirtualDom_node('ul');
+var $elm$html$Html$Attributes$value = $elm$html$Html$Attributes$stringProperty('value');
+var $author$project$Quiz3$DelTodo = function (a) {
+	return {$: 2, a: a};
+};
+var $author$project$Quiz3$DoneTodos = F2(
+	function (a, b) {
+		return {$: 1, a: a, b: b};
+	});
+var $elm$core$Tuple$second = function (_v0) {
+	var y = _v0.b;
+	return y;
+};
+var $elm$html$Html$Attributes$classList = function (classes) {
+	return $elm$html$Html$Attributes$class(
+		A2(
+			$elm$core$String$join,
+			' ',
+			A2(
+				$elm$core$List$map,
+				$elm$core$Tuple$first,
+				A2($elm$core$List$filter, $elm$core$Tuple$second, classes))));
+};
+var $elm$html$Html$li = _VirtualDom_node('li');
+var $elm$virtual_dom$VirtualDom$Normal = function (a) {
+	return {$: 0, a: a};
+};
+var $elm$html$Html$Events$on = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$Normal(decoder));
+	});
+var $elm$html$Html$Events$onClick = function (msg) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'click',
+		$elm$json$Json$Decode$succeed(msg));
+};
+var $author$project$Quiz3$viewResult = function (todo) {
+	return A2(
+		$elm$html$Html$li,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('itemList'),
+				$elm$html$Html$Events$onClick(
+				A2($author$project$Quiz3$DoneTodos, todo.i, todo.z))
+			]),
+		_List_fromArray(
+			[
+				A2(
+				$elm$html$Html$div,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$classList(
+						_List_fromArray(
+							[
+								_Utils_Tuple2('completed', todo.z)
+							])),
+						$elm$html$Html$Attributes$class('item')
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text(todo.J)
+					])),
+				A2(
+				$elm$html$Html$button,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('done material-symbols-outlined '),
+						$elm$html$Html$Events$onClick(
+						A2($author$project$Quiz3$DoneTodos, todo.i, todo.z))
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text('check')
+					])),
+				A2(
+				$elm$html$Html$button,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('delete material-symbols-outlined'),
+						$elm$html$Html$Events$onClick(
+						$author$project$Quiz3$DelTodo(todo.i))
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text('delete')
+					]))
+			]));
+};
 var $author$project$Quiz3$view = function (model) {
 	return A2(
 		$elm$html$Html$section,
@@ -5256,7 +5468,16 @@ var $author$project$Quiz3$view = function (model) {
 							[
 								$elm$html$Html$Attributes$class('wrapper formBlock')
 							]),
-						_List_Nil),
+						_List_fromArray(
+							[
+								A2(
+								$elm$html$Html$ul,
+								_List_fromArray(
+									[
+										$elm$html$Html$Attributes$class('text-left mt-24')
+									]),
+								A2($elm$core$List$map, $author$project$Quiz3$viewResult, model.n))
+							])),
 						A2(
 						$elm$html$Html$div,
 						_List_fromArray(
@@ -5266,16 +5487,40 @@ var $author$project$Quiz3$view = function (model) {
 						_List_fromArray(
 							[
 								A2(
-								$elm$html$Html$span,
+								$elm$html$Html$form,
 								_List_fromArray(
 									[
-										$elm$html$Html$Attributes$class('material-symbols-outlined')
+										$elm$html$Html$Attributes$class('form'),
+										$elm$html$Html$Events$onSubmit($author$project$Quiz3$CreateTodo)
 									]),
 								_List_fromArray(
 									[
-										$elm$html$Html$text('add')
-									])),
-								$elm$html$Html$text('New Item')
+										A2(
+										$elm$html$Html$input,
+										_List_fromArray(
+											[
+												$elm$html$Html$Attributes$class('inputTitle'),
+												$elm$html$Html$Attributes$placeholder('Add item here..'),
+												$elm$html$Html$Events$onInput(
+												function (string) {
+													return $author$project$Quiz3$SetField(string);
+												}),
+												$elm$html$Html$Attributes$value(model.t)
+											]),
+										_List_Nil),
+										A2(
+										$elm$html$Html$button,
+										_List_fromArray(
+											[
+												$elm$html$Html$Attributes$class('btn'),
+												$elm$html$Html$Attributes$type_('submit'),
+												$elm$html$Html$Attributes$disabled(model.t === '')
+											]),
+										_List_fromArray(
+											[
+												$elm$html$Html$text('Create')
+											]))
+									]))
 							]))
 					]))
 			]));
