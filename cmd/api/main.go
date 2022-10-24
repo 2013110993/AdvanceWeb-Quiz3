@@ -11,6 +11,9 @@ import (
 	"net/http"
 	"os"
 	"time"
+
+	"federicorosado.net/quiz3/internals/data"
+	_ "github.com/lib/pq"
 )
 
 // App Version
@@ -32,6 +35,7 @@ type config struct {
 type application struct {
 	config config
 	logger *log.Logger
+	models data.Models
 }
 
 func main() {
@@ -63,6 +67,7 @@ func main() {
 	app := &application{
 		config: cfg,
 		logger: logger,
+		models: *data.NewModels(db),
 	}
 
 	//create our http server
